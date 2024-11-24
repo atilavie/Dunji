@@ -3,12 +3,11 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://be08ac81atusq"
-path="res://.godot/imported/pillow-hit-154187.mp3-9fa875b107f8e00e41d5fe3d5e6cf952.mp3str"
+valid=false
 
 [deps]
 
 source_file="res://dunji_assets/pillow-hit-154187.mp3"
-dest_files=["res://.godot/imported/pillow-hit-154187.mp3-9fa875b107f8e00e41d5fe3d5e6cf952.mp3str"]
 
 [params]
 
