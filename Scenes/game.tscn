@@ -1,0 +1,289 @@
+[gd_scene load_steps=38 format=3 uid="uid://wumwx2sgq27v"]
+
+[ext_resource type="Texture2D" uid="uid://dxf2fv56334ek" path="res://dunji_assets/Menu/admin_hover.png" id="1_d4lev"]
+[ext_resource type="Theme" uid="uid://buyj2n5gta3oc" path="res://Scenes/new_theme.tres" id="1_qs8cg"]
+[ext_resource type="Texture2D" uid="uid://bh4oiwas11gg5" path="res://dunji_assets/Menu/dunji_background.png" id="1_wncsu"]
+[ext_resource type="Texture2D" uid="uid://ot06d0gmgnq6" path="res://dunji_assets/Menu/admin_press.png" id="2_02hn7"]
+[ext_resource type="Texture2D" uid="uid://d3xe1wvxd1f6r" path="res://dunji_assets/Menu/admin.png" id="3_yuwxx"]
+[ext_resource type="PackedScene" uid="uid://c5xblqofcwad0" path="res://Scenes/board.tscn" id="5_mnmu5"]
+[ext_resource type="Texture2D" uid="uid://c6sornointq7x" path="res://dunji_assets/Menu/rotation_hover.png" id="5_s64xd"]
+[ext_resource type="Texture2D" uid="uid://diofyqp1gsa62" path="res://dunji_assets/Menu/rotation_press.png" id="6_dp3rj"]
+[ext_resource type="Texture2D" uid="uid://dstkuwqoid1qp" path="res://dunji_assets/Menu/top_bar.png" id="6_xrqk5"]
+[ext_resource type="Texture2D" uid="uid://p62dp3lst32u" path="res://dunji_assets/Menu/rotation.png" id="7_aj6uf"]
+[ext_resource type="Texture2D" uid="uid://ds0gqim4j8n0t" path="res://dunji_assets/bar_mask.png" id="7_gfxnf"]
+[ext_resource type="Texture2D" uid="uid://qo17w2wn6w1x" path="res://dunji_assets/Menu/exit_hover.png" id="10_muati"]
+[ext_resource type="Texture2D" uid="uid://cms22ttiw3i66" path="res://dunji_assets/Menu/exit_press.png" id="11_j4ocd"]
+[ext_resource type="Texture2D" uid="uid://b4ft0mrlml067" path="res://dunji_assets/Menu/exit.png" id="12_8x1tr"]
+[ext_resource type="Texture2D" uid="uid://c0k1kpjsm6uv" path="res://dunji_assets/shadow.png" id="13_irnfn"]
+[ext_resource type="Texture2D" uid="uid://bjvnvk46gt4f1" path="res://dunji_assets/Menu/settings_small_hover.png" id="13_paikg"]
+[ext_resource type="Texture2D" uid="uid://dlauw7dumdwaj" path="res://dunji_assets/Menu/settings_small_press.png" id="14_ikufa"]
+[ext_resource type="Texture2D" uid="uid://83fiej57i2yq" path="res://dunji_assets/Menu/settings_small.png" id="15_xlayv"]
+[ext_resource type="Texture2D" uid="uid://bgpv5awwl70c8" path="res://dunji_assets/piece_box.png" id="18_0044d"]
+[ext_resource type="Texture2D" uid="uid://d0fhbufp0gmlq" path="res://dunji_assets/dunji_board_bottom_left.png" id="19_12svo"]
+[ext_resource type="Texture2D" uid="uid://dnnete2nm7h7j" path="res://dunji_assets/dunji_board_bottom_right.png" id="20_2clkx"]
+[ext_resource type="Texture2D" uid="uid://bst8n3csqeols" path="res://dunji_assets/board_connector.png" id="21_5f3rg"]
+[ext_resource type="Texture2D" uid="uid://bpd5kqwap7ks2" path="res://dunji_assets/dunji_board_top_left.png" id="21_ep5x2"]
+[ext_resource type="Texture2D" uid="uid://daig50japrpci" path="res://dunji_assets/dunji_board_top_right.png" id="22_fg745"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hvxiy"]
+texture = ExtResource("10_muati")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4gksd"]
+texture = ExtResource("11_j4ocd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7awnj"]
+texture = ExtResource("12_8x1tr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l8kuq"]
+texture = ExtResource("13_paikg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tx5kl"]
+texture = ExtResource("14_ikufa")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d8smu"]
+texture = ExtResource("15_xlayv")
+
+[sub_resource type="Theme" id="Theme_h7iba"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_acemf"]
+texture = ExtResource("5_s64xd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jqtlp"]
+texture = ExtResource("6_dp3rj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u1id5"]
+texture = ExtResource("7_aj6uf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gmt54"]
+texture = ExtResource("1_d4lev")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hrdy3"]
+resource_local_to_scene = true
+texture = ExtResource("2_02hn7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sdw1u"]
+texture = ExtResource("3_yuwxx")
+
+[node name="Game" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(180, -144)
+texture = ExtResource("1_wncsu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(180, -144)
+ignore_rotation = false
+zoom = Vector2(3, 3)
+
+[node name="Control" type="Control" parent="Camera2D"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = 253.0
+offset_top = 133.0
+offset_right = 293.0
+offset_bottom = 173.0
+theme = ExtResource("1_qs8cg")
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="Button" parent="Camera2D/Control"]
+z_index = 10
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.265
+anchor_top = 1.347
+anchor_right = 1.265
+anchor_bottom = 1.347
+offset_left = -286.6
+offset_top = -403.88
+offset_right = -267.6
+offset_bottom = -384.88
+theme_override_styles/hover = SubResource("StyleBoxTexture_hvxiy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4gksd")
+theme_override_styles/normal = SubResource("StyleBoxTexture_7awnj")
+
+[node name="Settings" type="Button" parent="Camera2D/Control"]
+z_index = 9
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.265
+anchor_top = 1.347
+anchor_right = 1.265
+anchor_bottom = 1.347
+offset_left = -304.6
+offset_top = -403.88
+offset_right = -285.6
+offset_bottom = -384.88
+theme_override_styles/hover = SubResource("StyleBoxTexture_l8kuq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tx5kl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_d8smu")
+
+[node name="RotationButton" type="Button" parent="Camera2D/Control"]
+z_index = 8
+z_as_relative = false
+layout_mode = 0
+offset_left = -272.0
+offset_top = -350.0
+offset_right = -253.0
+offset_bottom = -331.0
+theme = SubResource("Theme_h7iba")
+theme_override_styles/hover = SubResource("StyleBoxTexture_acemf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_jqtlp")
+theme_override_styles/normal = SubResource("StyleBoxTexture_u1id5")
+
+[node name="AdminButton" type="Button" parent="Camera2D/Control"]
+z_index = 7
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -12.2
+anchor_top = -6.95
+anchor_right = -11.275
+anchor_bottom = -6.025
+offset_left = 198.0
+offset_top = -72.0
+offset_right = 180.0
+offset_bottom = -90.0
+theme = ExtResource("1_qs8cg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gmt54")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_hrdy3")
+theme_override_styles/normal = SubResource("StyleBoxTexture_sdw1u")
+
+[node name="BarMask" type="Sprite2D" parent="Camera2D/Control"]
+visible = false
+z_index = 2
+position = Vector2(-253, -269.5)
+texture = ExtResource("7_gfxnf")
+
+[node name="OptionsBar" type="Sprite2D" parent="Camera2D/Control"]
+visible = false
+z_index = -1
+position = Vector2(-253, -277)
+texture = ExtResource("6_xrqk5")
+
+[node name="BarShadow" type="Sprite2D" parent="Camera2D/Control/OptionsBar"]
+z_index = -1
+position = Vector2(50.0511, -6.47211)
+scale = Vector2(0.54988, 1.16357)
+texture = ExtResource("13_irnfn")
+
+[node name="Board" parent="." instance=ExtResource("5_mnmu5")]
+position = Vector2(180, -144)
+
+[node name="MoveTimer" type="Timer" parent="Board"]
+wait_time = 0.9
+autostart = true
+
+[node name="PieceBox2" type="Sprite2D" parent="Board"]
+position = Vector2(396, -108)
+texture = ExtResource("18_0044d")
+
+[node name="Shadow4" type="Sprite2D" parent="Board/PieceBox2"]
+z_index = -1
+position = Vector2(3.05176e-05, 0)
+scale = Vector2(4, 6)
+texture = ExtResource("13_irnfn")
+
+[node name="PieceBox" type="Sprite2D" parent="Board"]
+position = Vector2(-396, 108)
+texture = ExtResource("18_0044d")
+
+[node name="Shadow3" type="Sprite2D" parent="Board/PieceBox"]
+z_index = -1
+position = Vector2(0.00012207, -2.28882e-05)
+scale = Vector2(3.99999, 6)
+texture = ExtResource("13_irnfn")
+
+[node name="DunjiBoardBottomLeft" type="Sprite2D" parent="Board"]
+z_index = -1
+position = Vector2(0, 208)
+texture = ExtResource("19_12svo")
+centered = false
+offset = Vector2(-198, 0)
+
+[node name="BoardBLShad" type="Sprite2D" parent="Board/DunjiBoardBottomLeft"]
+z_index = -2
+position = Vector2(-198, 0)
+scale = Vector2(11, 9)
+texture = ExtResource("13_irnfn")
+centered = false
+
+[node name="BoardConnector4" type="Sprite2D" parent="Board/DunjiBoardBottomLeft"]
+z_index = -1
+position = Vector2(-63, -6)
+rotation = 3.14159
+texture = ExtResource("21_5f3rg")
+
+[node name="BoardConnector3" type="Sprite2D" parent="Board/DunjiBoardBottomLeft"]
+z_index = -1
+position = Vector2(6, 81)
+rotation = -1.5708
+texture = ExtResource("21_5f3rg")
+
+[node name="DunjiBoardBottomRight" type="Sprite2D" parent="Board"]
+z_index = -1
+position = Vector2(353, 0)
+texture = ExtResource("20_2clkx")
+centered = false
+
+[node name="BoardBRShad" type="Sprite2D" parent="Board/DunjiBoardBottomRight"]
+z_index = -2
+scale = Vector2(11, 9)
+texture = ExtResource("13_irnfn")
+centered = false
+
+[node name="BoardConnector3" type="Sprite2D" parent="Board/DunjiBoardBottomRight"]
+z_index = -1
+position = Vector2(81, -6)
+rotation = 3.14159
+texture = ExtResource("21_5f3rg")
+
+[node name="BoardConnector4" type="Sprite2D" parent="Board/DunjiBoardBottomRight"]
+z_index = -1
+position = Vector2(-6, 63)
+rotation = 1.57079
+texture = ExtResource("21_5f3rg")
+
+[node name="DunjiBoardTopLeft" type="Sprite2D" parent="Board"]
+z_index = -1
+position = Vector2(0, -244)
+texture = ExtResource("21_ep5x2")
+centered = false
+offset = Vector2(-198, -162)
+
+[node name="BoardTLShad" type="Sprite2D" parent="Board/DunjiBoardTopLeft"]
+z_index = -2
+position = Vector2(-198, -162)
+scale = Vector2(11, 9)
+texture = ExtResource("13_irnfn")
+centered = false
+
+[node name="BoardConnector2" type="Sprite2D" parent="Board/DunjiBoardTopLeft"]
+z_index = -1
+position = Vector2(-81, 6)
+texture = ExtResource("21_5f3rg")
+
+[node name="DunjiBoardTopRight" type="Sprite2D" parent="Board"]
+z_index = -1
+position = Vector2(0, -201)
+texture = ExtResource("22_fg745")
+offset = Vector2(99, -81)
+
+[node name="BoardConnector5" type="Sprite2D" parent="Board/DunjiBoardTopRight"]
+z_index = -1
+position = Vector2(63, 7)
+texture = ExtResource("21_5f3rg")
+
+[node name="BoardTRShad" type="Sprite2D" parent="Board/DunjiBoardTopRight"]
+z_index = -2
+position = Vector2(99, -81)
+scale = Vector2(11, 9)
+texture = ExtResource("13_irnfn")
+
+[connection signal="button_up" from="Camera2D/Control/Quit" to="Board" method="_on_quit_button_up"]
+[connection signal="button_up" from="Camera2D/Control/RotationButton" to="Board" method="_on_rotation_button_button_up"]
+[connection signal="button_up" from="Camera2D/Control/AdminButton" to="Board" method="_on_check_button_button_up"]
+[connection signal="timeout" from="Board/MoveTimer" to="Board" method="_on_move_timer_timeout"]

@@ -1,0 +1,117 @@
+[gd_scene load_steps=19 format=3 uid="uid://bjixxkebeqf1e"]
+
+[ext_resource type="Script" path="res://Scenes/menu.gd" id="1_fyr2w"]
+[ext_resource type="Texture2D" uid="uid://bh4oiwas11gg5" path="res://dunji_assets/Menu/dunji_background.png" id="2_eo1uj"]
+[ext_resource type="Texture2D" uid="uid://qo17w2wn6w1x" path="res://dunji_assets/Menu/exit_hover.png" id="4_nqajh"]
+[ext_resource type="Texture2D" uid="uid://cms22ttiw3i66" path="res://dunji_assets/Menu/exit_press.png" id="5_e5wm2"]
+[ext_resource type="Texture2D" uid="uid://b4ft0mrlml067" path="res://dunji_assets/Menu/exit.png" id="6_q03ti"]
+[ext_resource type="Texture2D" uid="uid://dstkuwqoid1qp" path="res://dunji_assets/Menu/top_bar.png" id="7_7fcui"]
+[ext_resource type="Texture2D" uid="uid://c0k1kpjsm6uv" path="res://dunji_assets/shadow.png" id="8_di81a"]
+[ext_resource type="Texture2D" uid="uid://cwgufm4n1j6ho" path="res://dunji_assets/Menu/dunji_menu_darkness.png" id="9_1jct6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dnufp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sf3k6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_diap3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ypea5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t2akh"]
+
+[sub_resource type="Theme" id="Theme_6lwdr"]
+Button/styles/disabled = SubResource("StyleBoxEmpty_dnufp")
+Button/styles/focus = SubResource("StyleBoxEmpty_sf3k6")
+Button/styles/hover = SubResource("StyleBoxEmpty_diap3")
+Button/styles/normal = SubResource("StyleBoxEmpty_ypea5")
+Button/styles/pressed = SubResource("StyleBoxEmpty_t2akh")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q5plf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qmorn"]
+texture = ExtResource("4_nqajh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vibma"]
+texture = ExtResource("5_e5wm2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dxps3"]
+texture = ExtResource("6_q03ti")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -329.0
+offset_top = -180.0
+offset_right = -1609.0
+offset_bottom = -900.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_6lwdr")
+script = ExtResource("1_fyr2w")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(329, 180)
+texture = ExtResource("2_eo1uj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(329, 180)
+texture = SubResource("CompressedTexture2D_q5plf")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(329, 180)
+zoom = Vector2(3, 3)
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 2
+anchor_left = 0.766
+anchor_top = 0.847
+anchor_right = 0.766
+anchor_bottom = 0.847
+offset_left = -0.240021
+offset_top = 0.0799866
+offset_right = 18.76
+offset_bottom = 19.08
+theme_override_styles/hover = SubResource("StyleBoxTexture_qmorn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vibma")
+theme_override_styles/normal = SubResource("StyleBoxTexture_dxps3")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(329, 18)
+texture = ExtResource("7_7fcui")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprite2D2"]
+z_index = -2
+position = Vector2(1.99998, 164)
+scale = Vector2(22, 18)
+texture = ExtResource("8_di81a")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Sprite2D2"]
+z_index = -1
+position = Vector2(45, -8)
+scale = Vector2(1.22222, 0.888889)
+texture = ExtResource("8_di81a")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D2"]
+z_index = -1
+position = Vector2(32.375, -8.5)
+scale = Vector2(2.51389, 0.944445)
+texture = ExtResource("8_di81a")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Sprite2D2"]
+z_index = 5
+position = Vector2(0, 162)
+texture = ExtResource("9_1jct6")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(330, 181)
+scale = Vector2(22, 18)
+texture = ExtResource("8_di81a")
+
+[connection signal="button_up" from="Quit" to="." method="_on_quit_button_up"]

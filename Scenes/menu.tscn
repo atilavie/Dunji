@@ -1,0 +1,137 @@
+[gd_scene load_steps=30 format=3 uid="uid://bl4sklehg87nt"]
+
+[ext_resource type="Script" path="res://Scenes/menu.gd" id="1_ywvq7"]
+[ext_resource type="Texture2D" uid="uid://bh4oiwas11gg5" path="res://dunji_assets/Menu/dunji_background.png" id="2_c01d3"]
+[ext_resource type="Texture2D" uid="uid://cyd40tkdsfsal" path="res://dunji_assets/Menu/menu_panel.png" id="5_buwt8"]
+[ext_resource type="Texture2D" uid="uid://cillkitsuf4a8" path="res://dunji_assets/Menu/play_game_hover.png" id="6_2tw5j"]
+[ext_resource type="Texture2D" uid="uid://dojn0pd2gfaka" path="res://dunji_assets/Menu/play_game_press.png" id="7_7pedk"]
+[ext_resource type="Texture2D" uid="uid://c76n36ucybox2" path="res://dunji_assets/Menu/play_game.png" id="8_28xdo"]
+[ext_resource type="Texture2D" uid="uid://bkj8v3m1baoxr" path="res://dunji_assets/Menu/settings_hover.png" id="8_74inu"]
+[ext_resource type="Texture2D" uid="uid://dwkrgwrjtl0ir" path="res://dunji_assets/Menu/settings_press.png" id="9_p0xa5"]
+[ext_resource type="Texture2D" uid="uid://cid7ca7fir54" path="res://dunji_assets/Menu/press_to_play.png" id="10_2wykk"]
+[ext_resource type="Texture2D" uid="uid://b8erjo36gp06q" path="res://dunji_assets/Menu/dunji_logo.png" id="10_ivnwr"]
+[ext_resource type="Texture2D" uid="uid://b1vf4sc548pyw" path="res://dunji_assets/Menu/settings.png" id="10_vmn3o"]
+[ext_resource type="Texture2D" uid="uid://c4xuk2wo1py51" path="res://dunji_assets/Menu/exit_game_hover.png" id="11_5p47v"]
+[ext_resource type="Texture2D" uid="uid://dl8l1gfp2cta2" path="res://dunji_assets/Menu/exit_game_press.png" id="12_xmfnv"]
+[ext_resource type="Texture2D" uid="uid://csw33vp07tpkk" path="res://dunji_assets/Menu/exit_game.png" id="13_ie3a0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dnufp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sf3k6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_diap3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ypea5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t2akh"]
+
+[sub_resource type="Theme" id="Theme_6lwdr"]
+Button/styles/disabled = SubResource("StyleBoxEmpty_dnufp")
+Button/styles/focus = SubResource("StyleBoxEmpty_sf3k6")
+Button/styles/hover = SubResource("StyleBoxEmpty_diap3")
+Button/styles/normal = SubResource("StyleBoxEmpty_ypea5")
+Button/styles/pressed = SubResource("StyleBoxEmpty_t2akh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pibyg"]
+texture = ExtResource("6_2tw5j")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r12ko"]
+texture = ExtResource("7_7pedk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iq4yd"]
+texture = ExtResource("8_28xdo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mantg"]
+texture = ExtResource("8_74inu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2asra"]
+texture = ExtResource("9_p0xa5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ge428"]
+texture = ExtResource("10_vmn3o")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_apdid"]
+texture = ExtResource("11_5p47v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tsiol"]
+texture = ExtResource("12_xmfnv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_04mvi"]
+texture = ExtResource("13_ie3a0")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -329.0
+offset_top = -180.0
+offset_right = -1609.0
+offset_bottom = -900.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_6lwdr")
+script = ExtResource("1_ywvq7")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(329, 180)
+texture = ExtResource("2_c01d3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(329, 180)
+zoom = Vector2(3, 3)
+
+[node name="DunjiLogo" type="Sprite2D" parent="."]
+position = Vector2(332, -170)
+texture = ExtResource("10_ivnwr")
+
+[node name="PressToPlay" type="Sprite2D" parent="."]
+position = Vector2(328.5, 397.5)
+texture = ExtResource("10_2wykk")
+
+[node name="Play" type="Button" parent="."]
+z_index = 5
+layout_mode = 0
+offset_left = -151.0
+offset_top = 161.0
+offset_right = -78.0
+offset_bottom = 198.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_pibyg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r12ko")
+theme_override_styles/normal = SubResource("StyleBoxTexture_iq4yd")
+
+[node name="Settings" type="Button" parent="."]
+z_index = 5
+layout_mode = 0
+offset_left = -151.0
+offset_top = 197.0
+offset_right = -78.0
+offset_bottom = 234.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_mantg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2asra")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ge428")
+
+[node name="Quit" type="Button" parent="."]
+z_index = 5
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -151.0
+offset_top = 53.0
+offset_right = -78.0
+offset_bottom = 90.0
+grow_vertical = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_apdid")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tsiol")
+theme_override_styles/normal = SubResource("StyleBoxTexture_04mvi")
+
+[node name="MenuPanel" type="Sprite2D" parent="."]
+position = Vector2(-113.5, 216.5)
+texture = ExtResource("5_buwt8")
+
+[connection signal="button_up" from="Play" to="." method="_on_play_button_up"]
+[connection signal="button_up" from="Quit" to="." method="_on_quit_button_up"]

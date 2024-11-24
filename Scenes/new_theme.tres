@@ -1,0 +1,36 @@
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://buyj2n5gta3oc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dpj75"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xuqku"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b5m7n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_07m7i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d8uuq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d05ap"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6b4hm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0b7gb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aqljj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hc37t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pk6tr"]
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxEmpty_dpj75")
+Button/styles/focus = SubResource("StyleBoxEmpty_xuqku")
+Button/styles/hover = SubResource("StyleBoxEmpty_b5m7n")
+Button/styles/normal = SubResource("StyleBoxEmpty_07m7i")
+Button/styles/pressed = SubResource("StyleBoxEmpty_d8uuq")
+CheckButton/styles/disabled = SubResource("StyleBoxEmpty_d05ap")
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_6b4hm")
+CheckButton/styles/hover = SubResource("StyleBoxEmpty_0b7gb")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxEmpty_aqljj")
+CheckButton/styles/normal = SubResource("StyleBoxEmpty_hc37t")
+CheckButton/styles/pressed = SubResource("StyleBoxEmpty_pk6tr")
