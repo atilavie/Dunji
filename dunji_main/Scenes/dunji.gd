@@ -1,5 +1,4 @@
 extends Sprite2D
-
 const BOARD_HEIGHT = 16
 const BOARD_WIDTH = 20
 const CELL_WIDTH = 18
@@ -59,7 +58,6 @@ var state : bool = false
 var moves = []
 var selected_piece : Vector2
 var stage : int = 0
-var en_passant = null
 var selected_team_blue = true
 var false_capture = false
 var castle_use = false
@@ -69,10 +67,12 @@ var move_from_team = 1
 var administrator = false
 var together = false
 var move_from_id = 0
+
 var is_click = false
 var pieces_moving = []
 var in_menu = false
 func _ready():
+	
 	$"../Camera2D".rotation_degrees = 0 if GlobalOrientation.blue_perspective else 180
 	var o = 1 if round($"../Camera2D".rotation_degrees) == 180 else -1
 	dungeon_template.push_front([  1,  1,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,-14,-15, -7])#	16: = WALL
@@ -155,7 +155,7 @@ func piece_distribution():
 	tween.parallel()
 	tween.tween_property(box2, "position", Vector2(box2.position.x-144,box2.position.y), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 	await get_tree().create_timer(1).timeout
-	var randomizer_array = [] 
+	var randomizer_array = []
 	for q in range(16):
 		for w in range(20):
 			randomizer_array.append(Vector2(q,w))
@@ -174,7 +174,12 @@ func piece_distribution():
 	tween2.parallel()
 	tween2.tween_property(box2, "position", Vector2(box2.position.x+144,box2.position.y), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 	pieces_moving = []
+@rpc("any_peer")
+func remote_process():
+	board = $"..".player_board
 func _process(_delta: float) -> void:
+	remote_process()
+	$"..".player_board = board
 	for child in mouse.get_children():
 		child.queue_free()
 	display_board()
@@ -227,7 +232,6 @@ func match_texture(piece_id, holder):
 		3: holder.texture = BLUE_BISHOP
 		2: holder.texture = BLUE_KNIGHT
 		1: holder.texture = BLUE_PAWN
-
 func _input(event):
 	if event.is_action_pressed("Click"):
 		is_click = true
@@ -348,6 +352,7 @@ func load_save(save_value, is_opening : bool):
 		config.set_value("settings", "last_save", save_value)
 		config.save("res://config.cfg")
 	else: board = dungeon_template
+	$"..".player_board = board
 	enforce_turns()
 	if is_opening: return
 	var from_board_array = []
@@ -659,15 +664,7 @@ func move_behavior(move_from_space, move_to_space, move_to_id, i, var1, var2):
 	if stage == 0:
 		placement_end()
 func special_behavior(move_from_space, move_to_space, move_to_id, i, var1, var2):
-	var just_now = false
 	match abs(move_from_id):
-		1:
-			if (i.x == move_from_space.x + (2 * move_from_team)) && (i.y == move_from_space.y):
-				en_passant = i
-				just_now = true
-			elif en_passant != null && en_passant.y == i.y && move_from_space.y != i.y && en_passant.x == move_from_space.x:
-				dungeon_capture(board[en_passant.x][en_passant.y], en_passant)
-				board[en_passant.x][en_passant.y] = 0
 		10:
 			if move_to_id == (2 * move_from_team):
 				together = true
@@ -681,7 +678,6 @@ func special_behavior(move_from_space, move_to_space, move_to_id, i, var1, var2)
 			if (move_to_id * move_from_team) == 11:
 				together = true
 			move_with(move_from_space, move_to_space, 11 * move_from_team)
-	if !just_now: en_passant = null
 	false_capture = false
 	var destinations = [Vector2(1,0), Vector2(3,0), Vector2(2,0)]
 	if board[var2][var1] == (7 * move_from_team):
@@ -1048,10 +1044,6 @@ func get_pawn_moves(piece_position : Vector2):
 	var pos
 	if blue: direction = Vector2(1, 0)
 	else: direction = Vector2(-1, 0)
-	if en_passant != null && abs(en_passant.y - piece_position.y) == 1 && piece_position.x == en_passant.x:
-		pos = en_passant + direction
-		if is_empty(pos):
-			_moves.append(pos)
 	for movement_range in range(3):
 		pos = piece_position + direction * movement_range
 		if battlefield(pos) and (movement_range == 1 or home_ranks(piece_position) and is_empty(piece_position + direction)):

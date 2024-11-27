@@ -27,7 +27,7 @@ gdscript/warnings/integer_division=0
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=4
+window/size/mode=2
 window/defaults/default_clear_color=Color(0.169245, 0.169245, 0.169245, 1)
 window/transparent_background=false
 

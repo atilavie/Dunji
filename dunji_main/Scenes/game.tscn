@@ -1,5 +1,6 @@
-[gd_scene load_steps=38 format=3 uid="uid://wumwx2sgq27v"]
+[gd_scene load_steps=39 format=3 uid="uid://wumwx2sgq27v"]
 
+[ext_resource type="Script" path="res://Scenes/game.gd" id="1_1w5bv"]
 [ext_resource type="Texture2D" uid="uid://dxf2fv56334ek" path="res://dunji_assets/Menu/admin_hover.png" id="1_d4lev"]
 [ext_resource type="Theme" uid="uid://buyj2n5gta3oc" path="res://Scenes/new_theme.tres" id="1_qs8cg"]
 [ext_resource type="Texture2D" uid="uid://bh4oiwas11gg5" path="res://dunji_assets/Menu/dunji_background.png" id="1_wncsu"]
@@ -65,6 +66,7 @@ texture = ExtResource("2_02hn7")
 texture = ExtResource("3_yuwxx")
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_1w5bv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -5
